@@ -15,11 +15,17 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class Meetup_Attendance_Admin_Pages {
 
+	/**
+	 * Init the admin pages actions.
+	 */
 	public function __construct() {
-		add_action( 'admin_menu', array( $this, 'add_menus' ) );
+		add_action( 'admin_menu', array( $this, 'include_menus' ) );
 	}
 
-	public function add_menus() {
+	/**
+	 * Include menus.
+	 */
+	public function include_menus() {
 		add_menu_page(
 			__( 'Meetups Attendance', 'meetups-attendance' ),
 			__( 'Meetups Attendance', 'meetups-attendance' ),
@@ -31,8 +37,11 @@ class Meetup_Attendance_Admin_Pages {
 		);
 	}
 
+	/**
+	 * Render the main page.
+	 */
 	public function main_page() {
-
+		include dirname( __FILE__ ) . '/views/html-admin-page.php';
 	}
 }
 
