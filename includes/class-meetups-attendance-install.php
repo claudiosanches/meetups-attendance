@@ -32,7 +32,7 @@ class Meetups_Attendance_Install {
 		$tables = "
 			CREATE TABLE {$wpdb->prefix}ma_users (
 				ID bigint(20) NOT NULL auto_increment,
-				user_id varchar(16) NOT NULL,
+				meetup_user_id varchar(16) NOT NULL,
 				name longtext NULL,
 				url longtext NULL,
 				PRIMARY KEY  (ID),
@@ -40,12 +40,10 @@ class Meetups_Attendance_Install {
 			) $collate;
 			CREATE TABLE {$wpdb->prefix}ma_meetups (
 				ID bigint(20) NOT NULL auto_increment,
-				meetup_id varchar(16) NOT NULL,
 				name longtext NULL,
 				url longtext NULL,
 				date datetime NULL default null,
-				PRIMARY KEY  (ID),
-				KEY meetup_id (meetup_id)
+				PRIMARY KEY  (ID)
 			) $collate;
 			CREATE TABLE {$wpdb->prefix}ma_attendances (
 				ID bigint(20) NOT NULL auto_increment,
