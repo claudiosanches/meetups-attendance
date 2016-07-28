@@ -53,6 +53,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 			</tr>
 		</table>
 
+		<input type="hidden" name="meetup_attendance_importer" value="true">
+
 		<?php submit_button( __( 'Register', 'meetups-attendance' ) ); ?>
 	</form>
 

@@ -2,7 +2,7 @@
 /**
  * Meetups Attendance Admin Pages class
  *
- * @package Meetups_Attendance/Classes/Admin/Installer
+ * @package Meetups_Attendance/Classes/Admin/Pages
  * @version 0.0.1
  */
 
@@ -41,6 +41,13 @@ class Meetup_Attendance_Admin_Pages {
 	 * Render the main page.
 	 */
 	public function main_page() {
+		if ( isset( $_POST['meetup_attendance_importer'] ) && check_admin_referer( 'ma_create_meetup', 'ma_create_meetup_nonce' ) ) {
+			$response = Meetup_Attendance_Admin_DB_Manager::save_meetup_data( $_POST, $_FILES );
+			$classes  = $response->success ? 'notice notice-success' : 'notice notice-error';
+
+			echo '<div class="' . $classes . '"><p>' . esc_html( $response->message ) . '</p></div>';
+		}
+
 		include dirname( __FILE__ ) . '/views/html-admin-page.php';
 	}
 }

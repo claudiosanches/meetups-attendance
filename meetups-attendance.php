@@ -75,6 +75,7 @@ if ( ! class_exists( 'Meetups_Attendance' ) ) :
 		 * Admin includes.
 		 */
 		private function admin_includes() {
+			include_once dirname( __FILE__ ) . '/includes/admin/class-meetups-attendance-admin-db-manager.php';
 			include_once dirname( __FILE__ ) . '/includes/admin/class-meetups-attendance-admin-pages.php';
 		}
 
